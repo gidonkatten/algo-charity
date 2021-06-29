@@ -26,7 +26,7 @@ export function HowItWorks() {
           amount with a chosen ratio.
         </Grid>
         <Grid item xs={2}>
-          <Divider orientation="vertical" style={{ margin: 'auto'}} />
+          <Divider orientation="vertical" style={{ margin: 'auto', width: 3 }} />
         </Grid>
         <Grid item xs={5}>
           <h3>Donor</h3>

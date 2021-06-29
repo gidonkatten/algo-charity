@@ -8,9 +8,9 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 
 interface MyAlgoGetAccountsProps {
   addresses: string[];
-  setAddresses: (addresses: string[]) => void;
+  setAddresses: any;
   selectedAddress?: string;
-  setSelectedAddress: (address: string) => void;
+  setSelectedAddress: any;
 }
 
 export const MyAlgoGetAccounts = (props: MyAlgoGetAccountsProps) => {
