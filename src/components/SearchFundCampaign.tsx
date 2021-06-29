@@ -1,4 +1,4 @@
-export function Search() {
+export function SearchFundCampaign() {
   return (
     <div>
       Search

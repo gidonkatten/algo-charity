@@ -2,12 +2,13 @@ import React from "react";
 import { BackButton } from '../components/BackButton';
 
 interface FundCampaignProps {
+  selectedAddress?: string;
   exit: () => void;
 }
 
 export function FundCampaign(props: FundCampaignProps) {
 
-  const { exit } = props;
+  const { selectedAddress, exit } = props;
 
   return (
     <div>

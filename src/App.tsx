@@ -34,8 +34,20 @@ function App() {
           enterCampaign={enterCampaign}
         /> : null
       }
-      {nav === PageNav.CREATE ? <CreateFundCampaign exit={exit}/> : null}
-      {nav === PageNav.CAMPAIGN ? <FundCampaign exit={exit}/> : null}
+
+      {nav === PageNav.CREATE ?
+        <CreateFundCampaign
+          selectedAddress={selectedAddress}
+          exit={exit}
+        /> : null
+      }
+
+      {nav === PageNav.CAMPAIGN ?
+        <FundCampaign
+          selectedAddress={selectedAddress}
+          exit={exit}
+        /> : null
+      }
 
     </div>
   );

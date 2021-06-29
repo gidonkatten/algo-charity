@@ -1,6 +1,8 @@
 import React from "react";
-import { MyAlgoGetAccounts } from '../wallet/MyAlgoGetAccounts';
+import { MyAlgoGetAccounts } from '../algorand/MyAlgoGetAccounts';
 import { HowItWorks } from './HowItWorks';
+import { SearchFundCampaign } from '../components/SearchFundCampaign';
+import Button from '@material-ui/core/Button';
 
 interface LandingProps {
   addresses: string[];
@@ -32,6 +34,18 @@ export function Landing(props: LandingProps) {
       />
 
       <HowItWorks/>
+
+      <SearchFundCampaign/>
+
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={enterCreate}
+        fullWidth
+      >
+        Create Fund Campaign
+      </Button>
+
     </div>
   )
 }

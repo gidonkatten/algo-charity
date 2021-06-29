@@ -5,8 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { KeyboardDateTimePicker } from "@material-ui/pickers";
 import { AlgoNumberInput } from '../components/NumberInput';
+import { getApplication, getEscrowAddress } from '../utils/Requests';
+import { convertDateToUnixTime } from '../utils/Utils';
+import { createApplication, setEscrow } from '../algorand/Transactions';
 
 interface CreateFundCampaignProps {
+  selectedAddress?: string;
   exit: () => void;
 }
 
@@ -16,8 +20,9 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
   const [start, setStart] = useState(null);
   const [expiry, setExpiry] = useState(null);
   const [goal, setGoal] = useState(0);
+  const [appId, setAppId] = useState(0);
 
-  const { exit } = props;
+  const { selectedAddress, exit } = props;
 
   const clearForm = () => {
     setName('');
@@ -30,9 +35,28 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
     e.preventDefault();
 
     // check values
-    if(name.length === 0 || !start || !expiry || goal === 0) return;
+    if(name.length === 0 || !start || !expiry || goal === 0 || !selectedAddress) return;
+    const startUnix = convertDateToUnixTime(start!);
+    const expiryUnix = convertDateToUnixTime(expiry!);
+    if (startUnix >= expiryUnix) return;
 
-    clearForm();
+    // create application
+    const { statefulBytes, clearBytes } = await getApplication();
+    const appId = await createApplication(
+      selectedAddress,
+      name,
+      startUnix,
+      expiryUnix,
+      goal * 1e6,
+      Uint8Array.from(Object.values(statefulBytes)),
+      Uint8Array.from(Object.values(clearBytes)),
+    );
+
+    // set escrow address
+    getEscrowAddress(appId).then(escrowAddr => {
+      setEscrow(selectedAddress, appId, escrowAddr);
+      clearForm();
+    })
   }
 
   const handleStartChange = (date) => setStart(date);
@@ -41,6 +65,13 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
   return (
     <div>
       <BackButton onClick={exit}/>
+
+      {appId ?
+        <p className={"content"}>
+          Created application with ID {appId}. You can found your campaign by
+          searching for this number.
+        </p> : null
+      }
 
       <form onSubmit={handleSubmit}>
 
@@ -67,6 +98,18 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
                 fullWidth
                 InputProps={{ inputComponent: AlgoNumberInput }}
                 InputLabelProps={{ required: false }}
+            />
+          </Grid>
+
+          <Grid item xs={12}>
+            <TextField
+              label="Selected Address:"
+              value={selectedAddress ? selectedAddress : ''}
+              helperText="This can be changed in the landing page"
+              required
+              InputProps={{ readOnly: true }}
+              InputLabelProps={{ required: false }}
+              fullWidth
             />
           </Grid>
 
