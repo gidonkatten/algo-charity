@@ -20,18 +20,26 @@ export function HowItWorks() {
       </p>
 
       <Grid container>
+
         <Grid item xs={5}>
           <h3>Matcher</h3>
-          Become a matcher and commit to matching donations up to a certain
-          amount with a chosen ratio.
+          <p className={"content"}>
+            Become a matcher and commit to matching donations up to a certain
+            amount with a chosen ratio.
+          </p>
         </Grid>
+
         <Grid item xs={2}>
           <Divider orientation="vertical" style={{ margin: 'auto', width: 3 }} />
         </Grid>
+
         <Grid item xs={5}>
           <h3>Donor</h3>
-          Become a donor and have your donation automatically matched.
+          <p className={"content"}>
+            Become a donor and have your donation automatically matched.
+          </p>
         </Grid>
+
       </Grid>
     </>
   )
