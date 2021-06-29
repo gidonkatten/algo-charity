@@ -1,2 +1,0 @@
-(this["webpackJsonpalgo-charity"]=this["webpackJsonpalgo-charity"]||[]).push([[0],{10:function(t,e,r){"use strict";r.r(e);var c=r(1),n=r.n(c),o=r(3),i=r.n(o),a=r(0);var s=function(){return Object(a.jsx)("div",{children:"Hello World!"})};r(9);i.a.render(Object(a.jsx)(n.a.StrictMode,{children:Object(a.jsx)(s,{})}),document.getElementById("root"))}},[[10,1,2]]]);
-//# sourceMappingURL=main.a114f466.chunk.js.map
