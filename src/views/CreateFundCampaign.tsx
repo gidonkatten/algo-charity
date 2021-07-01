@@ -8,6 +8,7 @@ import { AlgoNumberInput } from '../components/NumberInput';
 import { getApplication, getEscrowAddress } from '../utils/Requests';
 import { convertDateToUnixTime } from '../utils/Utils';
 import { createApplication, setEscrow } from '../algorand/Transactions';
+import { microalgosToAlgos } from 'algosdk';
 
 interface CreateFundCampaignProps {
   selectedAddress?: string;
@@ -47,7 +48,7 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
       name,
       startUnix,
       expiryUnix,
-      goal * 1e6,
+      microalgosToAlgos(goal),
       Uint8Array.from(Object.values(statefulBytes)),
       Uint8Array.from(Object.values(clearBytes)),
     );

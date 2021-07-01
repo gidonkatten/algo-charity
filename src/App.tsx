@@ -21,7 +21,7 @@ function App() {
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(undefined);
   const [search, setSearch] = useState<Search>(Search.SEARCHING);
-  const [appState, setAppState] = useState<Map<string, any>>();
+  const [appState, setAppState] = useState<Map<string, any>>(new Map);
 
   const enterCreate = () => setNav(PageNav.CREATE);
   const enterCampaign = () => setNav(PageNav.CAMPAIGN);

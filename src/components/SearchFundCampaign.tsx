@@ -49,8 +49,8 @@ export function SearchFundCampaign(props: SearchFundCampaignProps) {
       return
     }
 
-    setSearch(Search.VERIFIED);
     setAppState(appState);
+    setSearch(Search.VERIFIED);
   }
 
   return (
