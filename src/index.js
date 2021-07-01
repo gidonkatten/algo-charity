@@ -7,10 +7,8 @@ import '@fontsource/roboto';
 import './styles/page.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <App />
-    </MuiPickersUtilsProvider>
-  </React.StrictMode>,
+  <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <App />
+  </MuiPickersUtilsProvider>,
   document.getElementById('root')
 );

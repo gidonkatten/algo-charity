@@ -56,6 +56,7 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
     getEscrowAddress(appId).then(escrowAddr => {
       setEscrow(selectedAddress, appId, escrowAddr);
       clearForm();
+      setAppId(appId);
     })
   }
 
@@ -95,9 +96,9 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
                 value={goal}
                 onChange={e => setGoal(Number(e.target.value))}
                 required
-                fullWidth
                 InputProps={{ inputComponent: AlgoNumberInput }}
                 InputLabelProps={{ required: false }}
+                fullWidth
             />
           </Grid>
 
@@ -107,7 +108,6 @@ export function CreateFundCampaign(props: CreateFundCampaignProps) {
               value={selectedAddress ? selectedAddress : ''}
               helperText="This can be changed in the landing page"
               required
-              InputProps={{ readOnly: true }}
               InputLabelProps={{ required: false }}
               fullWidth
             />
