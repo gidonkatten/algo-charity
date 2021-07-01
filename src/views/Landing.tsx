@@ -35,16 +35,23 @@ export function Landing(props: LandingProps) {
 
       <HowItWorks/>
 
-      <SearchFundCampaign/>
+      <h2>Usage</h2>
 
-      <Button
+      <p className={"content"}>
+        Connect your MyAlgo wallet and then either search for an existing
+        campaign or create your own!
+      </p>
+
+      <p><SearchFundCampaign/></p>
+
+      <p><Button
         variant="contained"
         color="primary"
         onClick={enterCreate}
         fullWidth
       >
         Create Fund Campaign
-      </Button>
+      </Button></p>
 
     </div>
   )
