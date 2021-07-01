@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/algo-charity/static/css/main.ebd30cb7.chunk.css",
-    "main.js": "/algo-charity/static/js/main.8aa97f35.chunk.js",
-    "main.js.map": "/algo-charity/static/js/main.8aa97f35.chunk.js.map",
+    "main.js": "/algo-charity/static/js/main.df411ce7.chunk.js",
+    "main.js.map": "/algo-charity/static/js/main.df411ce7.chunk.js.map",
     "runtime-main.js": "/algo-charity/static/js/runtime-main.152ce462.js",
     "runtime-main.js.map": "/algo-charity/static/js/runtime-main.152ce462.js.map",
     "static/css/2.7ce8cbae.chunk.css": "/algo-charity/static/css/2.7ce8cbae.chunk.css",
-    "static/js/2.63878527.chunk.js": "/algo-charity/static/js/2.63878527.chunk.js",
-    "static/js/2.63878527.chunk.js.map": "/algo-charity/static/js/2.63878527.chunk.js.map",
+    "static/js/2.e946ef1e.chunk.js": "/algo-charity/static/js/2.e946ef1e.chunk.js",
+    "static/js/2.e946ef1e.chunk.js.map": "/algo-charity/static/js/2.e946ef1e.chunk.js.map",
     "index.html": "/algo-charity/index.html",
     "static/css/2.7ce8cbae.chunk.css.map": "/algo-charity/static/css/2.7ce8cbae.chunk.css.map",
     "static/css/main.ebd30cb7.chunk.css.map": "/algo-charity/static/css/main.ebd30cb7.chunk.css.map",
-    "static/js/2.63878527.chunk.js.LICENSE.txt": "/algo-charity/static/js/2.63878527.chunk.js.LICENSE.txt",
+    "static/js/2.e946ef1e.chunk.js.LICENSE.txt": "/algo-charity/static/js/2.e946ef1e.chunk.js.LICENSE.txt",
     "static/media/index.css": "/algo-charity/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.152ce462.js",
     "static/css/2.7ce8cbae.chunk.css",
-    "static/js/2.63878527.chunk.js",
+    "static/js/2.e946ef1e.chunk.js",
     "static/css/main.ebd30cb7.chunk.css",
-    "static/js/main.8aa97f35.chunk.js"
+    "static/js/main.df411ce7.chunk.js"
   ]
 }
