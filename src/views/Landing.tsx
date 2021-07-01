@@ -9,6 +9,8 @@ interface LandingProps {
   setAddresses: any;
   selectedAddress?: string;
   setSelectedAddress: any;
+  setSearch: any;
+  setAppState: any;
   enterCreate: () => void;
   enterCampaign: () => void;
 }
@@ -20,6 +22,8 @@ export function Landing(props: LandingProps) {
     setAddresses,
     selectedAddress,
     setSelectedAddress,
+    setSearch,
+    setAppState,
     enterCreate,
     enterCampaign,
   } = props;
@@ -38,20 +42,26 @@ export function Landing(props: LandingProps) {
       <h2>Usage</h2>
 
       <p className={"content"}>
-        Connect your MyAlgo wallet and then either search for an existing
+        Connect your MyAlgo wallet (TestNet) and then either search for an existing
         campaign or create your own!
       </p>
 
-      <p><SearchFundCampaign/></p>
+      <SearchFundCampaign
+        enterCampaign={enterCampaign}
+        setSearch={setSearch}
+        setAppState={setAppState}
+      />
 
-      <p><Button
-        variant="contained"
-        color="primary"
-        onClick={enterCreate}
-        fullWidth
+      <br/><br/>
+
+      <Button
+      variant="contained"
+      color="primary"
+      onClick={enterCreate}
+      fullWidth
       >
         Create Fund Campaign
-      </Button></p>
+      </Button>
 
     </div>
   )

@@ -1,3 +1,5 @@
+import { TealKeyValue } from 'algosdk/dist/types/src/client/v2/algod/models/types';
+
 const algosdk = require('algosdk');
 
 const algodServer = 'https://testnet.algoexplorerapi.io/'
@@ -41,3 +43,25 @@ export const waitForConfirmation = async function (txId: string, timeout: number
 
   throw new Error("Transaction not confirmed after " + timeout + " rounds!");
 };
+
+/**
+ * Extract app state given TealKeyValue[]
+ */
+export function extractAppState(state?: TealKeyValue[] | undefined): Map<string, any> {
+  const map: Map<string, any> = new Map();
+
+  if (state) {
+    // Check if has a state
+    if (state) {
+      state.forEach(pair => {
+        const key: string = atob(pair.key);
+        let value: number | bigint | string;
+        if (pair.value.type === 1) value = atob(pair.value.bytes);
+        else value = pair.value.uint;
+        map.set(key, value);
+      })
+    }
+  }
+
+  return map;
+}

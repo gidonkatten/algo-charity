@@ -9,11 +9,19 @@ export enum PageNav {
     CAMPAIGN,
 }
 
+export enum Search {
+  SEARCHING,
+  VERIFIED,
+  NOT_VERIFIED,
+}
+
 function App() {
 
   const [nav, setNav] = useState(PageNav.LANDING);
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState(undefined);
+  const [search, setSearch] = useState<Search>(Search.SEARCHING);
+  const [appState, setAppState] = useState<Map<string, any>>();
 
   const enterCreate = () => setNav(PageNav.CREATE);
   const enterCampaign = () => setNav(PageNav.CAMPAIGN);
@@ -30,6 +38,8 @@ function App() {
           setAddresses={setAddresses}
           selectedAddress={selectedAddress}
           setSelectedAddress={setSelectedAddress}
+          setSearch={setSearch}
+          setAppState={setAppState}
           enterCreate={enterCreate}
           enterCampaign={enterCampaign}
         /> : null
@@ -45,6 +55,8 @@ function App() {
       {nav === PageNav.CAMPAIGN ?
         <FundCampaign
           selectedAddress={selectedAddress}
+          search={search}
+          appState={appState}
           exit={exit}
         /> : null
       }
